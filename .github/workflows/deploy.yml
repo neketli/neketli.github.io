@@ -12,15 +12,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Generate Swagger UI
-        uses: Legion2/swagger-ui-action@v1
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Copy files
+        run: |
+          cp -r swagger.yml swagger-ui/swagger.yml
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          output: swagger-ui
-          spec-file: swagger.yml
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          path: swagger-ui
 
       - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: swagger-ui
+        uses: actions/deploy-pages@v3
