@@ -1,0 +1,196 @@
+openapi: 3.0.3
+info:
+  title: neketli.ru - резюме разработчика
+  description: |
+    Привет! Меня зовут Никита Ли и это моё резюме.
+    Здесь можно получить всю информацию обо мне в формате JSON.
+
+    [![telegram](https://img.shields.io/badge/написать_мне_в_телеграм-blue?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/neketli)
+    
+  contact:
+    email: neketli.dev@gmail.com
+  license:
+    name: MIT License
+    url: https://github.com/neketli/neketli.github.io/blob/main/LICENSE
+  version: 1.0.0
+servers:
+  - url: https://neketli.ru/api
+    description: Production
+
+tags:
+  - name: Общее
+  - name: Навыки
+  - name: Опыт работы
+  - name: Обратная связь
+paths:
+  /info:
+    get:
+      tags: [Общее]
+      summary: Основная информация
+      description: Кто я и чем занимаюсь можно найти здесь.
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              example:
+                first_name: "Никита"
+                last_name: "Ли"
+                location: "Ростов-на-Дону, Россия"
+                role: "Software Engineer / Frontend"
+                education: "Бакалавр, Программная инженерия (2023, ДГТУ)"
+                specialization: ["Vue.js", "Golang"]
+                bio: "Пишу чистый код, люблю сложные задачи и кофе"
+
+  /contacts:
+    get:
+      tags: [Общее]
+      summary: Контактные данные
+      description: Тут можно найти список контактов для связи.
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              example:
+                telegram: "https://t.me/neketli"
+                email: "neketli.dev@gmail.com"
+                github: "https://github.com/neketli"
+                habr: "https://career.habr.com/neketli"
+                linkedin: "https://linkedin.com/in/nikita-li-462437256"
+
+  /skills/frontend:
+    get:
+      tags: [Навыки]
+      summary: Мой стек frontend-разработки
+      description: Люблю созерцать прекрасное, поэтому занятие фронтендом доставляет мне удовольствие, а для построения качественных и отзывчивых пользовательских интерфейсов я использую данный технический стек.
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              example:
+                skills:
+                  - { name: "JavaScript", level: "native" }
+                  - { name: "TypeScript", level: "advanced" }
+                  - { name: "Vue 2/3", level: "advanced" }
+                  - { name: "Nuxt.js", level: "advanced" }
+                  - { name: "Pinia/Vuex", level: "upper-intermediate" }
+                  - { name: "Jest/Vitest/Playwright", level: "upper-intermediate" }
+                  - { name: "Design systems/CSS frameworks", level: "upper-intermediate" }
+                  - { name: "Webpack/Vite", level: "advanced" }
+                  - { name: "I18n/A11y", level: "intermediate" }
+                  - { name: "Microfrontends", level: "intermediate" }
+
+  /skills/backend:
+    get:
+      tags: [Навыки]
+      summary: Навыки по части backend-разработки
+      description: Для серверной части я часто использую Golang, время от времени также использую Node.js. Уделяю большое внимание построению чистой, стабильной и понятной архитектуры своих сервисов, создавая безопасные и отказоустойчивые решения при разработке. 
+      responses:
+        '500':
+          description: Успешный ответ (заметили шутку про пятисотую ошибку?)
+          content:
+            application/json:
+              example:
+                skills:
+                  - { name: "Golang", description: "Микросервисы, монолиты, REST API, gRPC" }
+                  - { name: "Node.js", description: "Скрипты автоматизаций, REST API" }
+                  - { name: "SQL", description: "Разворачивание и настройка кластеров БД, создание миграций, оптимизация запросов", services: ["PostgreSQL", "MySQL", "ClickHouse"] }
+                  - { name: "NoSQL & Object Storage", description: "Хранение неструктурированных или часто используемых данных", services: ["MongoDB", "Redis", "S3"] }
+                  - { name: "Message brokers", description: "Выполнение асинхронных задач, взаимодействие микросервисов", services: ["Apache Kafka", "RabbitMQ"] }
+                  - { name: "Architecture", description: "Clean architecture, SOLID, DDD, TDD, MVC, OOP" }
+  /skills/devops:
+    get:
+      tags: [Навыки]
+      summary: Работа с инфраструктурой и автоматизацией процессов
+      description: Помимо работы над кодом и разработкой я часто взаимодействую и с инфраструктурой вокруг моих сервисов, стараясь автоматизировать всё что движется (а что не движется - двигать и автоматизировать). 
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              example:
+                skills:
+                  - { name: "Git", description: "Контроль версий и управление проектами, Git Flow, Commits Convention" }
+                  - { name: "CI/CD", description: "Настройка пайплайнов для сборки и тестирования с помощью GitHub Actions, GitLab ci" }
+                  - { name: "Docker", description: "Упаковываю сервисы в контейнеры и работаю с Docker Compose" }
+                  - { name: "Linux", description: "Базовое управление серверами" }
+                  - { name: "Bash/Python/Node", description: "Автоматизация задач и написание сценариев для системного администрирования" }
+                  - { name: "Make", description: "Автоматизация сборки и управления зависимостями в проектах" }
+                  - { name: "Nginx", description: "Управление веб-сервером и его конфигурацией, Reverse Proxy, раздача статического контента" }
+                  - { name: "OSI", description: "Понимание модели сетевого взаимодействия" }
+                  - { name: "Cloud/Serverless", description: "Использование облачных технологий для развертывания и масштабирования приложений" }
+                  - { name: "Ansible", description: "Автоматизация развертывания и управления инфраструктурой" }
+                  - { name: "Prometheus/Grafana/Loki", description: "Мониторинг, сбор метрик и логов приложений с последующей визуализацией" }
+  /experience:
+    get:
+      tags: [Опыт работы]
+      summary: Мои успехи
+      description: Здесь можно посмотреть мою историю работы
+      responses:
+        '200':
+          description: Успешный ответ
+          content:
+            application/json:
+              example:
+                - company: "Самозанятость"
+                  role: "Верстальщик"
+                  period: "2019-2022"
+                  stack: ["HTML", "CSS", "JavaScript", "Vue 2"]
+                  tasks: [
+                    "Вёрстка лендингов и онлайн-магазинов на заказ",
+                    "Курсовые работы на JS",
+                    "Преподавание основ программирования для детей",
+                  ]
+                - company: "DDoS-GUARD"
+                  role: "Frontend Developer"
+                  site: "https://ddos-guard.net"
+                  period: "2022-2024"
+                  stack: ["Vue 2/3", "Nuxt 2/3", "JavaScript", "Jest", "Storybook", "REST"]
+                  tasks: [
+                    "Разработка пользовательского интерфейса личного кабинета клиента",
+                    "Разработка лендингов для продуктов компании",
+                    "Вёрстка отчетов и писем",
+                    "Внедрение лучших практик в проекте",
+                    "Код-ревью, рефакторинг, тестирование, документация",
+                    ]
+                - company: "РЕГ.РУ"
+                  role: "Frontend Developer (Tech Lead)"
+                  site: "https://cloud.reg.ru"
+                  period: "2024-н.в."
+                  stack: ["Vue 3", "TypeScript", "Jest", "Storybook", "GraphQL", "Microfrontends"]
+                  tasks: [
+                    "Разработка пользовательского интерфейса личного кабинета клиента",
+                    "Улучшение производительности страниц и компонентов",
+                    "Переход от legacy платформ, обновление стека",
+                    "Внедрение новых инструментов для повышения эффективности разработки",
+                    "Планирование работ, анализ результатов",
+                    "Код-ревью, рефакторинг, тестирование, документация",
+                  ]
+
+  /contact:
+    post:
+      tags: [Обратная связь]
+      summary: Отправить сообщение для меня
+      description: Если хотите связаться со мной то, здесь можно отправить мне сообщение с вашими контактными данными. Чтобы это сделать, нажмите на кнопку "Try it out" заполните данные в окне редактирования и нажмите "Execute".
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                telegram:
+                  type: string
+                description:
+                  type: string
+            example:
+              email: "test@test.ru"
+              telegram: "@test"
+              description: "Хочу связаться с вами по поводу вакансии, напишите мне в телеграм!"
+      responses:
+        '201':
+          description: Форма обратной связи успешно отправлена
+
