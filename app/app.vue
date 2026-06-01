@@ -33,7 +33,7 @@ useSeoMeta({
     <GridBackground />
 
     <nav class="fixed left-1/2 top-4 z-50 -translate-x-1/2">
-      <div class="flex items-center gap-1 rounded-full border border-blue-500/20 bg-[#0a1628]/80 px-2 py-1 backdrop-blur-xl">
+      <div class="flex items-center gap-0.5 sm:gap-1 rounded-full border border-blue-500/20 bg-[#0a1628]/80 px-2 py-1 backdrop-blur-xl">
         <a
           v-for="link in [
             { to: '#hero', key: 'nav.hero' },
@@ -43,14 +43,14 @@ useSeoMeta({
           ]"
           :key="link.to"
           :href="link.to"
-          class="rounded-full px-4 py-2 text-sm text-gray-400 transition-all duration-300 hover:bg-blue-500/10 hover:text-blue-300"
+          class="rounded-full px-2 py-1.5 sm:px-4 sm:py-2 text-sm text-gray-400 transition-all duration-300 hover:bg-blue-500/10 hover:text-blue-300"
         >
           {{ t(link.key) }}
         </a>
         <div class="mx-1 h-5 w-px bg-blue-500/20" />
         <button
           @click="toggleLocale()"
-          class="rounded-full px-3 py-2 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/10"
+          class="rounded-full px-2 py-1.5 sm:px-3 sm:py-2 text-sm font-medium text-blue-400 transition-all duration-300 hover:bg-blue-500/10"
         >
           {{ locale === "ru" ? "EN" : "RU" }}
         </button>
