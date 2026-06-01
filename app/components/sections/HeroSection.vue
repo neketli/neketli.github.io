@@ -59,31 +59,31 @@ const contactList = Object.entries(contacts) as [string, string][]
           {{ t("hero.bio") }}
         </p>
 
-        <div class="flex flex-wrap items-center justify-center gap-4">
+        <div class="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
           <a
             href="#contacts"
-            class="group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-[1px] font-medium text-white transition-all duration-500 hover:shadow-[0_0_50px_-5px_rgba(59,130,246,0.6)] hover:scale-105"
+            class="group relative inline-flex h-10 sm:h-12 items-center justify-center overflow-hidden rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 p-[1px] font-medium text-white transition-all duration-500 hover:shadow-[0_0_50px_-5px_rgba(59,130,246,0.6)] hover:scale-105"
           >
-            <span class="inline-flex h-full w-full items-center justify-center rounded-full bg-[#0a1628] px-8 transition-all duration-300 group-hover:bg-[#0a1628]/40">
+            <span class="inline-flex h-full w-full items-center justify-center rounded-full bg-[#0a1628] px-6 sm:px-8 transition-all duration-300 group-hover:bg-[#0a1628]/40">
               {{ t("hero.contact") }}
             </span>
           </a>
           <a
             href="#experience"
-            class="group relative inline-flex h-12 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/10 px-8 font-medium text-blue-300 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/50 hover:bg-blue-500/20 hover:text-blue-200 hover:scale-105"
+            class="group relative inline-flex h-10 sm:h-12 items-center justify-center rounded-full border border-blue-500/30 bg-blue-500/10 px-6 sm:px-8 font-medium text-blue-300 backdrop-blur-sm transition-all duration-500 hover:border-blue-400/50 hover:bg-blue-500/20 hover:text-blue-200 hover:scale-105"
           >
             {{ t("hero.experience") }}
           </a>
         </div>
 
-        <div class="mt-16 flex items-center justify-center gap-4">
+        <div class="mt-10 sm:mt-16 flex items-center justify-center gap-2 sm:gap-4">
           <a
             v-for="[name, url] in contactList"
             :key="name"
             :href="url"
             :target="name === 'email' ? undefined : '_blank'"
             :rel="name === 'email' ? undefined : 'noopener noreferrer'"
-            class="group flex h-11 w-11 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/5 text-gray-400 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-500/15 hover:text-blue-300 hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]"
+            class="group flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/5 text-gray-400 backdrop-blur-sm transition-all duration-300 hover:border-blue-400/50 hover:bg-blue-500/15 hover:text-blue-300 hover:shadow-[0_0_20px_-5px_rgba(59,130,246,0.4)]"
           >
             <Icon :name="contactIcons[name]" class="h-5 w-5" />
           </a>
